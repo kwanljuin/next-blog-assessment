@@ -4,10 +4,8 @@ import { Provider } from "react-redux";
 import { makeStore, AppStore } from "../lib/store";
 
 export default function StoreProvider({
-  count,
   children,
 }: {
-  count: number;
   children: React.ReactNode;
 }) {
   const storeRef = useRef<AppStore | null>(null);
