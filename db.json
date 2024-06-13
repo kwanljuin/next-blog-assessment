@@ -1,14 +1,19 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "hello",
-      "body": "hello world"
+      "id": "WDFK12G4",
+      "title": "Confession of a Stranger",
+      "body": "I have a secret that I've never shared with anyone before. It's been weighing on me for so long, but today I feel ready to reveal it."
     },
     {
-      "id": 2,
-      "title": "hello2",
-      "body": "hello world 2"
+      "id": "E8HJF73A",
+      "title": "Whispers in the Dark",
+      "body": "There's something I've been keeping to myself for far too long. It's a secret that haunts me, but also gives me a sense of power."
+    },
+    {
+      "id": "P9DN2W1Q",
+      "title": "Hidden Truths",
+      "body": "Deep within me lies a truth that I've buried for years. It's a secret that has shaped my life in ways I never imagined."
     }
   ]
 }
