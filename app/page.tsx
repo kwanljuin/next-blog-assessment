@@ -3,10 +3,10 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { fetchPosts } from "@/lib/features/posts/postsSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { Button } from "@/components/ui/button";
 import type { Post } from "@/lib/features/posts/postsSlice";
 import type { RootState } from "@/lib/store";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/components/ui/button";
 
 const HomePage = () => {
   const dispatch = useAppDispatch();
@@ -37,7 +37,7 @@ const HomePage = () => {
           + New
         </Button>
       </Link>
-      <h6 className="mt-4 font-bold">✨ secrets:</h6>
+      <h6 className="mt-4 mb-2 font-bold">✨ Posts:</h6>
       {loading && (
         <div className="space-y-2 text-center my-4">
           <Skeleton className="h-4 w-full mx-auto" />
