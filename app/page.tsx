@@ -5,8 +5,9 @@ import { fetchPosts } from "@/lib/features/posts/postsSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import type { Post } from "@/lib/features/posts/postsSlice";
 import type { RootState } from "@/lib/store";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+import { ErrorCard } from "@/components/ErrorCard";
 
 const HomePage = () => {
   const dispatch = useAppDispatch();
@@ -17,8 +18,6 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(fetchPosts());
   }, [dispatch]);
-
-  if (error) return <p>Error: {error}</p>;
 
   return (
     <div className="container px-4 pt-10 pb-4">
@@ -45,12 +44,7 @@ const HomePage = () => {
           <Skeleton className="h-4 w-full mx-auto" />
         </div>
       )}
-      {error && (
-        <div className="my-4 text-center border border-red-600 rounded py-2">
-          <h3 className="text-red-500">Error</h3>
-          <p className="text-red-500">{error}</p>
-        </div>
-      )}
+      {error && <ErrorCard errorMessage={error} />}
       {!loading && !error && (
         <ul>
           {posts.map((post: Post) => (

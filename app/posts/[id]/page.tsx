@@ -4,9 +4,10 @@ import { useEffect } from "react";
 import { ChevronLeftIcon, Edit, Trash2 } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { fetchPostById, deletePost } from "@/lib/features/posts/postsSlice";
-import { Button } from "@/components/ui/button";
 import type { RootState } from "@/lib/store";
+import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ErrorCard } from "@/components/ErrorCard";
 
 const PostDetailsPage = ({ params: { id } }: { params: { id: string } }) => {
   const dispatch = useAppDispatch();
@@ -41,12 +42,7 @@ const PostDetailsPage = ({ params: { id } }: { params: { id: string } }) => {
           <Skeleton className="h-[125px] w-full rounded-xl" />
         </div>
       )}
-      {error && (
-        <div className="my-4 text-center border border-red-600 rounded py-2">
-          <h3 className="text-red-500">Error</h3>
-          <p className="text-red-500">{error}</p>
-        </div>
-      )}
+      {error && <ErrorCard errorMessage={error} />}
       {!loading && !error && post && (
         <div className="border rounded-xl border-slate-500 pl-4 p-3">
           <div className="flex justify-between">

@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { fetchPostById } from "@/lib/features/posts/postsSlice";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
+import { ErrorCard } from "@/components/ErrorCard";
 import PostForm from "../../_components/PostForm";
 
 const EditPostPage = ({ params: { id } }: { params: { id: string } }) => {
@@ -37,12 +38,8 @@ const EditPostPage = ({ params: { id } }: { params: { id: string } }) => {
           </div>
         </div>
       )}
-      {error && (
-        <div className="my-4 text-center border border-red-600 rounded py-2">
-          <h3 className="text-red-500">Error</h3>
-          <p className="text-red-500">{error}</p>
-        </div>
-      )}
+      {error && <ErrorCard errorMessage={error} />}
+
       {!loading && !error && post && <PostForm post={post} />}
     </div>
   );
